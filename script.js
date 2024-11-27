@@ -1,14 +1,26 @@
-//your JS code here. If required.
-
 const form = document.getElementById("form");
 
-form.addEventListener("submit",()=> {
-	if(!form.name.value || !form.age.value ) return;
-	return new Promise((res,rej)=> {
-		setTimeout(()=> {
-			if(form.age.value < 18) rej(`Oh sorry ${form.name.value}. You aren't old enough.`);
-		    res(`Welcome, ${form.name.value}. You can vote`);
-		},4000)
-	})
-	
-})
+form.addEventListener("submit", async (event) => {
+  event.preventDefault(); // Prevent form submission and page reload
+
+  const name = document.getElementById("name").value;
+  const age = document.getElementById("age").value;
+
+  if (!name || !age) {
+    return;
+  }
+
+  const promise = new Promise((res, rej) => {
+    setTimeout(() => {
+      if (age < 18) {
+        rej(`Oh sorry ${name}. You aren't old enough.`);
+      } else {
+        res(`Welcome, ${name}. You can vote`);
+      }
+    }, 4000);
+  });
+
+  await promise
+    .then((message) => alert(message))
+    .catch((error) => alert(error));
+});
