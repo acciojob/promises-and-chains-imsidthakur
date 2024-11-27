@@ -1,6 +1,7 @@
 const form = document.getElementById("form");
+const btn = document.getElementById("btn");
 
-form.addEventListener("submit", async (event) => {
+btn.addEventListener("click", async (event) => {
   event.preventDefault(); // Prevent form submission and page reload
 
   const name = document.getElementById("name").value;
