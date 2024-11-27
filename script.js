@@ -16,7 +16,7 @@ btn.addEventListener("click", async (event) => {
       if (age < 18) {
         rej(`Oh sorry ${name}. You aren't old enough.`);
       } else {
-        res(`Welcome, ${name}. You can vote`);
+        res(`Welcome, ${name}. You can vote.`);
       }
     }, 4000);
   });
