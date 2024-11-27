@@ -22,6 +22,6 @@ btn.addEventListener("click", async (event) => {
   });
 
   await promise
-    .then((message) => alert(message))
-    .catch((error) => alert(error));
+    .then((message) => {alert(message)})
+    .catch((error) => {alert(error)});
 });
